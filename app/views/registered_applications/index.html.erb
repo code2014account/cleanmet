@@ -1,2 +1,4 @@
-<h1>RegisteredApplications#index</h1>
-<p>Find me in app/views/registered_applications/index.html.erb</p>
+<h1>All Registered Applications</h1>
+<% @registered_applications.each do |registeredapplication| %>
+  <p> <%= link_to registeredapplication.title, registered_application %></p>
+<% end %>
