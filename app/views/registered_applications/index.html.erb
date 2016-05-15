@@ -1,10 +1,21 @@
 <h1>All Registered Applications</h1>
-<% @registered_applications.each do |registeredapplication| %>
-  <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to registeredapplication.title, registered_application %>
-      </h4>
-    </div>
-  </div>
-<% end %>
+
+<div class="row">
+  <div class="col-md-8">
+    <% @registered_applications.each do |registeredapplication| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to registeredapplication.name, registered_application %>
+          </h4>
+          <small>
+            <%= topic.description %>
+          </small>
+        </div>
+      </div>
+    <% end %>
+      </div>
+        <div class="col-md-4">
+          <%= link_to "New Registered Application", new_registered_application_path, class: 'btn btn-sucess' %>
+        </div>
+      </div>
