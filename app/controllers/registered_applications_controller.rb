@@ -4,6 +4,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def show
+    @registered_application = RegisteredApplication.find(params[:id])
   end
 
   def new
