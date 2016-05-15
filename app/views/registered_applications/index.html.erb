@@ -1,4 +1,10 @@
 <h1>All Registered Applications</h1>
 <% @registered_applications.each do |registeredapplication| %>
-  <p> <%= link_to registeredapplication.title, registered_application %></p>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to registeredapplication.title, registered_application %>
+      </h4>
+    </div>
+  </div>
 <% end %>
