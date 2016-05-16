@@ -19,11 +19,13 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def create
+    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    p registered_application_params
     @registered_application = RegisteredApplication.new(registered_application_params)
-    @registered_application.user = current_user
+
 
     if @registered_application.save
-      redirect_to current_user, notice: "Application was saved!"
+      redirect_to @registered_application, notice: "Application was saved!"
     else
       flash[:error] = "There was an error saving the app. Try again."
       render "users/show"
@@ -49,8 +51,7 @@ class RegisteredApplicationsController < ApplicationController
   private
 
   def registered_application_params
-    params.require(:registered_application).permit(:name)
-    params.require(:registered_application).permit(:url)
+    params.require(:registered_application).permit(:name, :url)
   end
 
 
