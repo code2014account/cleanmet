@@ -1,4 +1,8 @@
 class RegisteredApplicationsController < ApplicationController
+
+
+
+
   def index
     @registered_applications = RegisteredApplication.all
   end
@@ -8,7 +12,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def new
-    @registered_application = RegisteredApplication.new
+    @registered_application = RegisteredApplication.new(params[:topic_id])
   end
 
   def edit
@@ -16,7 +20,7 @@ class RegisteredApplicationsController < ApplicationController
 
   def create
     @registered_application = RegisteredApplication.new(registered_application_params)
-    registered_application.user = current_user
+    @registered_application.user = current_user
 
     if @registered_application.save
       redirect_to current_user, notice: "Application was saved!"
@@ -40,5 +44,14 @@ class RegisteredApplicationsController < ApplicationController
     end
     redirect_to current_user
   end
+
+
+  private
+
+  def registered_application_params
+    params.require(:registered_application).permit(:name)
+    params.require(:registered_application).permit(:url)
+  end
+
 
 end

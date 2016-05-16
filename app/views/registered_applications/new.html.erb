@@ -4,26 +4,24 @@
   <div class="col-md-4">
     <p>Guidelines for registered applications </p>
     <ul>
+      <li>Add the name of the app</li>
       <li>Add the entire URL</li>
       <li>Do not repeate yourself</li>
-      <li>Add a small description of the app</li>
     </ul>
   </div>
   <div class="col-8-md">
     <%= form_for @registered_application do |f| %>
       <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control', placeholder: "Enter App URL" %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Enter App Name" %>
       </div>
       <div class="form-group">
-        <%= f.label :body %>
-        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Description" %>
+        <%= f.label :url %>
+        <%= f.text_field :url, class: 'form-control', placeholder: "Enter App URL" %>
       </div>
-      <div class="form-group">
+
+      </div>
         <%= f.submit "Save", class: 'btn btn-sucess' %>
-      </div>
-
-
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
