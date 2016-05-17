@@ -2,14 +2,16 @@
 
 <div class="row">
   <div class="col-md-8">
-    <% @registered_applications.each do |registeredapplication| %>
+    <% @registered_applications.each do |registered_application| %>
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to registeredapplication.name, registered_application %>
+            <%= link_to registered_application.name, registered_application %>
+            <%= link_to "Delete item", registered_application_path(registered_application), method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this post?'} %>
+
           </h4>
           <small>
-            <%= topic.url %>
+            <%= registered_application.url %>
           </small>
         </div>
       </div>

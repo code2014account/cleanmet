@@ -15,10 +15,6 @@ class RegisteredApplicationsController < ApplicationController
     @registered_application = RegisteredApplication.new(params[:topic_id])
   end
 
-  def edit
-    @registered_application = RegisteredApplication.find(params[:id])
-  end
-
   def create
     p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     p registered_application_params
@@ -33,9 +29,6 @@ class RegisteredApplicationsController < ApplicationController
     end
   end
 
-  def update
-  end
-
   def destroy
 
     @registered_application = RegisteredApplication.find(params[:id])
@@ -45,7 +38,7 @@ class RegisteredApplicationsController < ApplicationController
     else
       flash[:error] = "There was an error deleting the Application."
     end
-    redirect_to current_user
+      redirect_to @registered_application, notice: "Application was deleted!"
   end
 
 
