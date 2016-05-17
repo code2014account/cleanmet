@@ -9,6 +9,7 @@ class RegisteredApplicationsController < ApplicationController
 
   def show
     @registered_application = RegisteredApplication.find(params[:id])
+    @events = @registered_application.events.group_by(&:name)
   end
 
   def new
@@ -16,8 +17,6 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def create
-    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-    p registered_application_params
     @registered_application = RegisteredApplication.new(registered_application_params)
 
 

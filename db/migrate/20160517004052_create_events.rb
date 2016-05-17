@@ -2,8 +2,11 @@ class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
       t.string :name
+      t.integer :count
+      t.references :registered_application, index: true
 
       t.timestamps null: false
     end
   end
+  add_foreign_key :events, :registered_application
 end
