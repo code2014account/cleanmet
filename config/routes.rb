@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :registered_applications do
-    resources :events 
+    resources :events
+  end
+
+  namespace :api, defaults: { format: :json } do
+     resources :events, only: [:create]
   end
 
   devise_for :users
