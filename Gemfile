@@ -12,7 +12,7 @@ source 'https://rubygems.org'
    gem 'sqlite3'
  end
 
- gem 'groupdate'
+
  gem "chartkick"
  gem 'sass-rails', '~> 5.0'
  gem 'uglifier', '>= 1.3.0'
