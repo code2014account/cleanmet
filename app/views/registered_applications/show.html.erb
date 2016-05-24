@@ -7,7 +7,9 @@
         <div class="media">
           <div class="media-body">
             <h4 class="media-heading">
-              <%= event.name %>
+        <%= javascript_include_tag "https://www.google.com/jsapi" %>      
+        <%= pie_chart @registered_application.events.group(:name).count %>
+
             </h4>
           </div>
         </div>
